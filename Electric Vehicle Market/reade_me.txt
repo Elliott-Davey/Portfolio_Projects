@@ -1,1 +1,64 @@
-this is a read me file that needs to be edited
+With the increasing push for more sustainable solutions to living, the electric vehicle market has been growing at a rapid rate throughout the past few years. OEM's are releasing new electric vehicle models every year leading to a wider variety of options available to customers. Furthermore, the shift towards electrification may have left manufacturers with a difficult decision with regards to sell price of new models, especially with the incorporation of new technology such as batteries, battery recharge methods and more powerful electric motors. This project aims to acquire specification data on electric vehicle models currently in the market, clean, store and analyse this data; moreover, a neural network machine learning model will be trained to predict the selling price. The idea behind this project was to create a tool whereby vehicle manufacturers can enter electric vehicle specification data of a new model to understand what price they may be able achieve. Furthermore, this type of insight may be able to help manufacturers with managing cost of tooling, costs of sourcing parts from global OES suppliers and other costs associated with mass production of new vehicle models.
+
+Now with the context of the project set it is worth discussing the data science content. The majority of this project is written in the python programming language and aims to detail the entire data science process as shown below:
+
+Electric vehicle specification data is scraped from https://www.evspecifications.com/ using the selenium library in python. Furthermore, an api is used to collate data on exchange rates because the pricing data from the website is in multiple currencies and must be standardised. The api url: https://api.exchangerate.host/timeseries
+
+The data is cleaned using the pandas library in python. Lots of the data is inconsistent between models on the website, hence a large portion of this section is addressing missing data. If there is too much missing data in a given column then it is removed; however, the strategy employed when filling in missing data is to group the data and use mean values of the groups
+
+The cleaned data is then stored in a MySQL server database hosted on Amazon Web Services Relation Database platform (AWS RDS). This is to allow quick querying when moving forward with the project
+
+Data analysis is conducted on the dataset by looking at the pricing distribution; categorical variables vs price; continuous variables vs price and other visualisations such as a correlation heat map. A dashboard is created using Micrsoft Power BI to visualise insight on the dataset. The link to the dashboard can be found here: https://app.powerbi.com/view?r=eyJrIjoiYzcwYTZiNWQtYWFkNS00Mjk5LTljMDQtNGFjODVlMzRjNWZjIiwidCI6IjRkMWZhZjhhLTliNGYtNDExNS1iYWY4LWYzMTA2MjdmYzFmNyIsImMiOjh9 alternatively it can be found in the script or on the application web page
+
+The TensorFlow Python package is used to build a neural net machine learning model that is trained on the dataset to predict vehicle price. The dataset has to be pre-processed before being input to the model such as converting categorical variables to dummy variables.
+
+Flask library in python is used to deploy the machine learning model in a web applicaton. A website is created so that the model can be embedded in the webpage along with the power bi dashboard. The HTML file can be found on my Github page using the following link:
+
+Lastly the model is deployed using AWS elastic bean stalk platform so that anyone online can use the model
+
+
+EXAMPLE FOR WEB APPLICATION!!!
+ |              |            |
+ |              |            |
+ |              |            |
+\ /            \ /          \ /
+ V              V            V
+ 
+ 
+Brand                                                           Nissan
+Market                                           North America, Europe
+ModelYear                                                         2019
+BodyStyle                                                    Hatchback
+CurbWeight                                                      1729.0
+DragCoefficient                                                   0.28
+FrontTrack                                                      1539.0
+Gvwr                                                            2155.0
+Height                                                          1565.0
+Length                                                          4481.0
+Materials                       Corrosionresistant high strength steel
+NumberOfDoors                                                        5
+NumberOfSeats                                                        5
+RearTrack                                                       1555.0
+TrunkVolume                                                      668.0
+Wheelbase                                                       2700.0
+ElectricMotorType                                       AC synchronous
+LocationOfTheMotor                                               Front
+Power                                                            160.0
+Torque                                                           340.0
+AccelerationFrom0To100Kmperh                                   6.93952
+TopSpeed                                                         159.0
+RangeMiles                                                       215.0
+EfficiencyMPGe                                                 97.5837
+TurningCircleMetres                                               11.0
+AxleRatio                                                        8.193
+Drivetrain                                        Frontwheel drive FWD
+FrontBrakes                                           Ventilated discs
+RearBrakes                                            Ventilated discs
+BatteryCapacityKWh                                                62.0
+Cooling                                          Air convection active
+Location                                       Under the floor, middle
+Manufacturer                                                      AESC
+NumberOfCells                                                    288.0
+NumberOfModules                                                    3.0
+TypeOfRechargeableBattery                                   LithiumIon
+VoltageV                                                       291.511
