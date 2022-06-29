@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Electric Vehicle Price Predictor</title>
+    </head>
+
+    <body>
+
+        <h1 style="text-align: center;">Electric Vehicle Price Predictor</h1>
+
+        <p style="text-align: center">
+            The Power BI report below shows the dataset, in particular how each variable relates to price.
+            <br>
+            <br>
+            <iframe style="text-align:center" title="EV_Specification_Dashboard" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=c88668d0-eeb7-4b08-8b17-6de635b365ef&autoAuth=true&ctid=4d1faf8a-9b4f-4115-baf8-f310627fc1f7&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9" frameborder="0" allowFullScreen="true"></iframe>
+            <br>
+            <br>
+            Enter the vehicle specifications below to get a price prediciton.
+            <br>
+            <br>
+        </p>
+
+        <form action="/" method="POST", style="text-align: center;">
+            <label for="brand">Brand:</label>
+            <select name="brand" id="brand">
+                <option value="0">select a model</option>
+                <option value="1">Tesla</option>
+                <option value="2">Audi</option>
+                <option value="3">Volkswagen</option>
+                <option value="4">MercedesBenz</option>
+                <option value="5">Nissan</option>
+                <option value="6">Hyundai</option>
+                <option value="7">KIA</option>
+                <option value="8">Ford</option>
+                <option value="9">Chevrolet</option>
+                <option value="10">Renault</option>
+                <option value="11">BMW</option>
+                <option value="12">Opel</option>
+                <option value="13">NIO</option>
+                <option value="14">Rivian</option>
+                <option value="15">Mazda</option>
+                <option value="16">Porsche</option>
+                <option value="17">Genesis</option>
+                <option value="18">e.GO</option>
+                <option value="19">Byton</option>
+                <option value="20">FIAT</option>
+                <option value="21">Honda</option>
+                <option value="22">MINI</option>
+                <option value="23">SEAT</option>
+                <option value="24">smart</option>
+                <option value="25">ŠKODA</option>
+                <option value="26">MG</option>
+                <option value="27">Jaguar</option>
+                <option value="28">Polestar</option>
+                <option value="29">Peugeot</option>
+                <option value="30">Dacia</option>
+                <option value="31">Volvo</option>
+            </select>
+            <br>
+            <br>
+            <label for="market">Market:</label>
+            <select name="market" id="market">
+                <option value="0">select a market</option>
+                <option value="1">North America, Europe</option>
+                <option value="2">Global</option>
+                <option value="3">Europe</option>
+                <option value="4">North America</option>
+                <option value="5">North America, Europe, South Korea</option>
+                <option value="6">North America, Europe, China, Australia, Japan</option>
+                <option value="7">North America, Europe, China, Austrlia</option>
+                <option value="8">North America, Europe, China</option>
+                <option value="9">Europe, South Korea, India</option>
+                <option value="10">China</option>
+                <option value="11">North America, Europe, Australia</option>
+                <option value="12">North America, South America, Europe</option>
+                <option value="13">Europe, Austrlia</option>
+                <option value="14">North America, China</option>
+                <option value="15">North America, Japan</option>
+                <option value="16">Europe, China, Australia</option>
+                <option value="17">North America, South Korea</option>
+                <option value="18">Europe, South Korea</option>
+            </select>
+            <br>
+            <br>
+            <label for="model_year">Model Year:</label>
+            <input type="number" id="model_year" name="model_year">
+            <br>
+            <br>
+            <label for="body_style">Body Style:</label>
+            <select name="body_style" id="body_style">
+                <option value="0">select a body style</option>
+                <option value="1">Sport utility vehicle SUV</option>
+                <option value="2">Hatchback</option>
+                <option value="3">Sedan</option>
+                <option value="4">Pickup</option>
+                <option value="5">Crossover</option>
+                <option value="6">Coupe</option>
+                <option value="7">Cabriolet</option>
+                <option value="8">Minivan</option>
+            </select>
+            <br>
+            <br>
+            <label for="curb_weight">Curb Weight:</label>
+            <input type="number" id="curb_weight" name="curb_weight"> (kg)
+            <br>
+            <br>
+            <label for="drag_coefficient">Drag Coefficient:</label>
+            <input type="number" id="drag_coefficient" name="drag_coefficient" step=".01">
+            <br>
+            <br>
+            <label for="front_track">Front Track:</label>
+            <input type="number" id="front_track" name="front_track"> (mm)
+            <br>
+            <br>
+            <label for="gvwr">GVWR:</label>
+            <input type="number" id="gvwr" name="gvwr"> (kg)
+            <br>
+            <br>
+            <label for="height">Height:</label>
+            <input type="number" id="height" name="height"> (mm)
+            <br>
+            <br>
+            <label for="length">Length:</label>
+            <input type="number" id="length" name="length"> (mm)
+            <br>
+            <br>
+            <label for="materials">Materials:</label>
+            <select name="materials" id="materials">
+                <option value="0">select materials</option>
+                <option value="1">Steel Aluminium</option>
+                <option value="2">Steel</option>
+                <option value="3">Aluminium highstrength boron steel</option>
+                <option value="4">Steal Aluminium</option>
+                <option value="5">Mild steel Highstrength steel Ultrahighstrength steel Aluminium</option>
+                <option value="6">Extruded aluminium with boron steel</option>
+                <option value="7">Aluminium High tensile strength steel</option>
+                <option value="8">Carbon fiber reinforced polymer Aluminium</option>
+                <option value="9">Steel Aluminium Alloy</option>
+                <option value="10">Steel Carbonfiber</option>
+                <option value="11">Advanced Highstrength Steel High Tensile Steel</option>
+                <option value="12">Steel Carbonfiber Aluminium</option>
+                <option value="13">Highstrength steel</option>
+                <option value="14">Carbonfiber Highstrength steel 7075 aluminium alloy</option>
+                <option value="15">Plastic Aluminium Highstrength steel</option>
+                <option value="16">Advanced High Strength Steel Aluminium</option>
+                <option value="17">Corrosionresistant high strength steel</option>
+                <option value="18">7003 series aluminium alloy</option>
+                <option value="19">Carbon fibrereinforced plastic CFRP Aluminium</option>
+                <option value="20">93 aluminium 4 boron steel 3 steel</option>
+            </select>
+            <br>
+            <br>
+            <label for="number_of_doors">Number of Doors:</label>
+            <select name="number_of_doors" id="number_of_doors">
+                <option value="default">select number of doors</option>
+                <option value="0">2</option>
+                <option value="1">3</option>
+                <option value="2">4</option>
+                <option value="3">5</option>
+            </select>
+            <br>
+            <br>
+            <label for="number_of_seats">Number of Seats:</label>
+            <select name="number_of_seats" id="number_of_seats">
+                <option value="default">select number of seats</option>
+                <option value="0">2</option>
+                <option value="1">4</option>
+                <option value="2">5</option>
+                <option value="3">6</option>
+                <option value="4">7</option>
+                <option value="5">4/5</option>
+                <option value="6">5/6/7</option>
+                <option value="7">5/7</option>
+                <option value="8">6/7</option>
+                <option value="9">6/8</option>
+            </select>
+            <br>
+            <br>
+            <label for="rear_track">Rear Track:</label>
+            <input type="number" id="rear_track" name="rear_track"> (mm)
+            <br>
+            <br>
+            <label for="trunk_volume">Trunk Volume:</label>
+            <input type="number" id="trunk_volume" name="trunk_volume"> (liters)
+            <br>
+            <br>
+            <label for="wheel_base">Wheel Base:</label>
+            <input type="number" id="wheel_base" name="wheel_base"> (mm)
+            <br>
+            <br>
+            <label for="electric_motor_type">Electric Motor Type:</label>
+            <select name="electric_motor_type" id="electric_motor_type">
+                <option value="default">select electric motor type</option>
+                <option value="0">Permanent magnet synchronous</option>
+                <option value="1">AC inductionasynchronous</option>
+                <option value="2">Brushless DC</option>
+                <option value="3">AC synchronous</option>
+                <option value="4">Switched reluctance</option>
+            </select>
+            <br>
+            <br>
+            <label for="location_of_motor">Electric Motor Location:</label>
+            <select name="location_of_motor" id="location_of_motor">
+                <option value="default">select location of motor</option>
+                <option value="0">Rear</option>
+                <option value="1">Front</option>
+                <option value="2">Front & Rear</option>
+            </select>
+            <br>
+            <br>
+            <label for="power">Power:</label>
+            <input type="number" id="power" name="power"> (kW)
+            <br>
+            <br>
+            <label for="torque">Torque:</label>
+            <input type="number" id="torque" name="torque"> (Nm)
+            <br>
+            <br>
+            <label for="acceleration_0_100kph">Acceleration 0-100kph:</label>
+            <input type="number" id="acceleration_0_100kph" name="acceleration_0_100kph" step=".1"> (s)
+            <br>
+            <br>
+            <label for="top_speed">Top Speed:</label>
+            <input type="number" id="top_speed" name="top_speed"> (kmph)
+            <br>
+            <br>
+            <label for="range">Range:</label>
+            <input type="number" id="range" name="range"> (miles)
+            <br>
+            <br>
+            <label for="efficiency">Efficiency:</label>
+            <input type="number" id="efficiency" name="efficiency"> (MPGe)
+            <br>
+            <br>
+            <label for="turning_circle">Turning Circle:</label>
+            <input type="number" id="turning_circle" name="turning_circle"> (metres)
+            <br>
+            <br>
+            <label for="axle_ratio">Axle Ratio:</label>
+            <input type="number" id="axle_ratio" name="axle_ratio" step=".01">
+            <br>
+            <br>
+            <label for="drivetrain">Drivetrain:</label>
+            <select name="drivetrain" id="drivetrain">
+                <option value="default">select drivetrain</option>
+                <option value="0">Allwheel drive AWD</option>
+                <option value="1">Frontwheel drive FWD</option>
+                <option value="2">Rearwheel drive RWD</option>
+                <option value="3">Fourwheel drive 4WD4x4</option>
+            </select>
+            <br>
+            <br>
+            <label for="front_brakes">Front Brakes:</label>
+            <select name="front_brakes" id="front_brakes">
+                <option value="default">select front brakes</option>
+                <option value="0">Ventilated discs</option>
+                <option value="1">Discs</option>
+            </select>
+            <br>
+            <br>
+            <label for="rear_brakes">Rear Brakes:</label>
+            <select name="rear_brakes" id="rear_brakes">
+                <option value="default">select rear brakes</option>
+                <option value="0">Ventilated discs</option>
+                <option value="1">Discs</option>
+                <option value="2">Drums</option>
+            </select>
+            <br>
+            <br>
+            <label for="battery_capacity">Battery Capacity:</label>
+            <input type="number" id="battery_capacity" name="battery_capacity"> (kWh)
+            <br>
+            <br>
+            <label for="cooling">Battery Cooling:</label>
+            <select name="cooling" id="cooling">
+                <option value="default">select cooling</option>
+                <option value="0">Waterbased coolant circulation</option>
+                <option value="1">Waterbased coolant circulation Heat pipe</option>
+                <option value="2">Air convection passive</option>
+                <option value="3">Air convection</option>
+                <option value="4">Passive cooling</option>
+                <option value="5">Waterbased coolant circulation Heat pump</option>
+                <option value="6">Waterbased coolant circulation Heat pump optional</option>
+                <option value="7">Air convection Waterbased coolant circulation</option>
+                <option value="8">Waterbased coolant circulation Heat pipe Battery Heating System</option>
+                <option value="9">Active thermal management</option>
+                <option value="10">Air convection active</option>
+            </select>
+            <br>
+            <br>
+            <label for="location">Battery Location:</label>
+            <select name="location" id="location">
+                <option value="default">select location</option>
+                <option value="0">Under the floor, middle</option>
+                <option value="1">Under the floor, midrear</option>
+            </select>
+            <br>
+            <br>
+            <label for="manufacturer">Battery Manufacturer:</label>
+            <select name="manufacturer" id="manufacturer">
+                <option value="default">select manufacturer</option>
+                <option value="0">Panasonic</option>
+                <option value="1">LG Chem</option>
+                <option value="2">LG Chem and Deutsche ACCUMOTIVE</option>
+                <option value="3">SK Innovation</option>
+                <option value="4">AESC</option>
+                <option value="5">Samsung SDI</option>
+                <option value="6">Tesla and Panasonic</option>
+                <option value="7">CATL</option>
+                <option value="8">Renault and LG Chem</option>
+                <option value="9">PanasonicSanyo</option>
+                <option value="10">Deutsche Accumotive</option>
+                <option value="11">Tesla and Panasonic, LG Chem</option>
+                <option value="12">A123 Systems</option>
+            </select>
+            <br>
+            <br>
+            <label for="number_of_cells">Number of Battery Cells:</label>
+            <input type="number" id="number_of_cells" name="number_of_cells">
+            <br>
+            <br>
+            <label for="number_of_modules">Number of Battery Modules:</label>
+            <input type="number" id="number_of_modules" name="number_of_modules">
+            <br>
+            <br>
+            <label for="type_of_rechargeable_battery">Type of Rechargeable Battery:</label>
+            <select name="type_of_rechargeable_battery" id="type_of_rechargeable_battery">
+                <option value="default">select type of rechargeable battery</option>
+                <option value="0">LithiumIon</option>
+                <option value="1">LiIon Polymer</option>
+            </select>
+            <br>
+            <br>
+            <label for="voltage">Voltage:</label>
+            <input type="number" id="voltage" name="voltage"> (V)
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <br>
+        <h3 style="text-align: center;">£ output price {{ output }}</h3>
+    </body>
+</html>
