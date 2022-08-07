@@ -1,0 +1,53 @@
+/** General **/
+body {
+    background-color: aqua;
+}
+
+/** Header **/
+#header-nav {
+    background-color: blueviolet;
+}
+
+.navbar-header .navbar-brand {
+    color: white;
+    padding-top: 5px;
+}
+
+.navbar-brand h1 {
+    margin-top: 0;
+}
+
+#nav-list li a {
+    text-align: center;
+    color: white;
+    font-style: italic;
+
+}
+
+#nav-list li a:hover {
+    background-color: brown;
+    color: white;
+}
+
+
+/** main body **/
+#menu-title {
+    margin: 50px;
+}
+
+#food-descriptions .section {
+    background-color: grey;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    color: brown;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.section p {
+    color: white;
+}
